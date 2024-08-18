@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="donation_form" name="Formulaire de Don">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>Faire un Don</h2>
+                <form action="/don/valider" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="donor_name">Nom complet</label>
+                        <input type="text" name="donor_name" required="required" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor_phone_number">Numero de Telephone</label>
+                        <input type="text" name="donor_phone_number" required="required" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Montant</label>
+                        <input type="text" name="amount" required="required" class="form-control"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Faire le don</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="donation__thanks" name="Remerciement">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>DCR vous remerci pour votre Don</h2>
+            </div>
+        </t>
+    </template>
+
+    <template id="donation_error" name="Echec du don">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>Une erreur c'est produite. Veuillez reassayer plus tard</h2>
+            </div>
+        </t>
+    </template>
+</odoo>
