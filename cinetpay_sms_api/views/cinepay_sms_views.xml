@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_cinetpay_sms_form" model="ir.ui.view">
+        <field name="name">cinetpay.sms.form</field>
+        <field name="model">cinetpay.sms</field>
+        <field name="arch" type="xml">
+            <form string="CinetPay SMS">
+                <group>
+                    <field name="recipient"/>
+                    <field name="message"/>
+                    <field name="status" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Send SMS" type="object" name="send_sms" class="oe_highlight" attrs="{'invisible': [('status', '=', 'sent')]}"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cinetpay_sms_tree" model="ir.ui.view">
+        <field name="name">cinetpay.sms.tree</field>
+        <field name="model">cinetpay.sms</field>
+        <field name="arch" type="xml">
+            <tree string="CinetPay SMS">
+                <field name="name"/>
+                <field name="recipient"/>
+                <field name="message"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_cinetpay_sms_root" name="CinetPay SMS" sequence="10"/>
+    <menuitem id="menu_cinetpay_sms" parent="menu_cinetpay_sms_root" name="Send SMS" action="action_cinetpay_sms"/>
+
+    <record id="action_cinetpay_sms" model="ir.actions.act_window">
+        <field name="name">Send SMS</field>
+        <field name="res_model">cinetpay.sms</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
