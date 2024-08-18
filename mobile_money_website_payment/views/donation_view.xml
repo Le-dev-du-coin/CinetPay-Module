@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_donation_form" model="ir.ui.view">
+        <field name="name">donation.form</field>
+        <field name="model">cinetpay.donation</field>
+        <field name="arch" type="xml">
+            <form string="Donation">
+                <sheet>
+                    <group>
+                        <field name="donor_name"/>
+                        <field name="donor_email"/>
+                        <field name="amount"/>
+                        <field name="currency"/>
+                        <field name="transaction_id"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_donation_tree" model="ir.ui.view">
+        <field name="name">donation.tree</field>
+        <field name="model">cinetpay.donation</field>
+        <field name="arch" type="xml">
+            <tree string="Donations">
+                <field name="donor_name"/>
+                <field name="donor_email"/>
+                <field name="amount"/>
+                <field name="currency"/>
+                <field name="transaction_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_donations_root" name="Donations" sequence="10"/>
+    <menuitem id="menu_donations" parent="menu_donations_root" name="Donations" action="action_donations"/>
+
+    <record id="action_donations" model="ir.actions.act_window">
+        <field name="name">Donations</field>
+        <field name="res_model">cinetpay.donation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

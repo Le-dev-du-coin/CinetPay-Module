@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from cinetpay_sdk.s_d_k import Cinetpay
+from odoo import models, fields
 
 
 class CinetpayPayement(models.Model):

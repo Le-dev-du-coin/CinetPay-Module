@@ -6,17 +6,25 @@
                 <h2>Faire un Don</h2>
                 <form action="/don/valider" method="post">
                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                    <div class="form-group">
-                        <label for="donor_name">Nom complet</label>
-                        <input type="text" name="donor_name" required="required" class="form-control"/>
+                    <div class="col d-flex d-justify-content-space-around">
+                        <div class="form-group col-4">
+                            <label for="donor_surname">Prenom</label>
+                            <input type="text" name="donor_surname" required="required" class="form-control"/>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="donor_name">Nom</label>
+                            <input type="text" name="donor_name" required="required" class="form-control"/>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="col-12 d-flex d-justify-content-space-around">
+                        <div class="form-group col-4">
                         <label for="donor_phone_number">Numero de Telephone</label>
                         <input type="text" name="donor_phone_number" required="required" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-4">
                         <label for="amount">Montant</label>
                         <input type="text" name="amount" required="required" class="form-control"/>
+                    </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Faire le don</button>
                 </form>
